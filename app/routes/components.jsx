@@ -18,16 +18,24 @@ function IconX() {
 }
 
 export function Header () {
+    // style the active link with a border at the bottom on wide screens 
+    // and with bold fonts on mobile
     function linkStyle({isActive}) {
         return isActive ? "sm:border-b-2 font-semibold sm:font-base border-current" : ""
     }
     return (
         <div className="py-4 px-10 bg-white/30 flex sm:flex-row flex-col">
             <input type="checkbox" className="hidden peer" id="menu"/>
-            <label className="sm:hidden cursor-pointer self-end peer-checked:hidden" htmlFor="menu"><IconMenu /></label>
+            {/* This label can click the hidden input thanks to htmlFor */}
+            <label htmlFor="menu"
+              className="sm:hidden cursor-pointer self-end peer-checked:hidden" >
+              <IconMenu />
+            </label>
 
             <div className="hidden sm:flex peer-checked:flex sm:flex-row flex-col gap-4">
-                <label className="sm:hidden cursor-pointer self-end" htmlFor="menu"><IconX /></label>
+                <label className="sm:hidden cursor-pointer self-end" htmlFor="menu">
+                  <IconX />
+                </label>
                 <NavLink className={linkStyle} to="/">Home</NavLink>
                 <NavLink className={linkStyle} to="/about">About</NavLink>
             </div>

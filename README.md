@@ -18,6 +18,9 @@ when going from a large screen to a small mobile phone screen
 <img alt="Menu Small Open" src="/assets/menu-small-open.png" width="200" />
 
 
+You can find the associated article on my [homepage](https://noahbieler.com).
+
+
 ## Development
 
 From your terminal:
