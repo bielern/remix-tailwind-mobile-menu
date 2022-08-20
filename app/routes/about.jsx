@@ -2,7 +2,7 @@ import { Header } from "./components";
 
 export default function Index() {
     return (
-        <div className="min-h-screen bg-teal-100">
+        <div className="min-h-screen bg-teal-700 text-white">
             <Header />
             <div className="content">
                 <h1>About our Example</h1>
