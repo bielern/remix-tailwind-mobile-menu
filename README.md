@@ -1,15 +1,21 @@
 # Example for responsive mobile menu using react, remix and tailwind
 
-This example uses [react](reactjs.org), [remix](remix.run) and [tailwind](tailwindcss.com)
-to create a menu that changes responsively when going from a large screen to a 
-small mobile phone screen (with a burger menu).
+This example uses [react](https://reactjs.org), [remix](https://remix.run) and 
+[tailwind](https://tailwindcss.com) to create a menu that changes responsively 
+when going from a large screen to a small mobile phone screen 
+(with a burger menu).
 
 * Menu Wide
-  ![Menu Wide](assets/menu-wide.png)
+
+<img alt="Menu Wide" src="/assets/menu-wide.png" width=200" />
+
 * Menu Small Closed
-  ![Menu Small Closed](assets/menu-small-closed.png)
+
+<img alt="Menu Small Closed" src="/assets/menu-small-closed.png" width=200" />
+
 * Menu Small Open
-  ![Menu Small Open](assets/menu-small-open.png)
+
+<img alt="Menu Small Open" src="/assets/menu-small-open.png" width=200" />
 
 
 ## Development
