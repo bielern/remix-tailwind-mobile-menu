@@ -7,15 +7,15 @@ when going from a large screen to a small mobile phone screen
 
 * Menu Wide
 
-<img alt="Menu Wide" src="/assets/menu-wide.png" width=200" />
+<img alt="Menu Wide" src="/assets/menu-wide.png" width="400" />
 
 * Menu Small Closed
 
-<img alt="Menu Small Closed" src="/assets/menu-small-closed.png" width=200" />
+<img alt="Menu Small Closed" src="/assets/menu-small-closed.png" width="200" />
 
 * Menu Small Open
 
-<img alt="Menu Small Open" src="/assets/menu-small-open.png" width=200" />
+<img alt="Menu Small Open" src="/assets/menu-small-open.png" width="200" />
 
 
 ## Development
@@ -41,6 +41,4 @@ Then run the app in production mode:
 ```sh
 npm start
 ```
-
-Now you'll need to pick a host to deploy it to.
 
