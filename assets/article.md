@@ -11,8 +11,9 @@ If you don't want to use an input element, you can try to use
 the [`target` pseudo class](https://tailwindcss.com/docs/hover-focus-and-other-states#target)
 on the menu with `id=menu`. 
 The menu icon is then not a label but a link to `#menu`.
-Or you can use javascript. 
-But I think it is more elegant not having to rely on it for this.
+
+Or you can use Javascript. 
+But with Remix it's much more elegant and practical not to rely on Javascript for this;
 
 ## Setup
 
@@ -75,9 +76,13 @@ npm run dev
 
 To fully understand, what is going on, 
 it is best to consult the Remix documentation.
+To have a local copy, clone the repo with
+```
+git clone https://github.com/bielern/remix-tailwind-mobile-menu.git
+```
+
 The intersting files are in the `app/routes` folder: `index.jsx` with the index 
 route, `about.jsx` with the "About" page and `components.jsx` with the menu header.
-
 The `export default function Index()` part in `index.jsx` and `about.jsx` tells
 remix that these are pages to be rendered (on the server side that is).
 They both import the `Header` from `components`.
@@ -101,7 +106,7 @@ export default function Index() {
 }
 ```
 
-In `components.jsx` we have 
+The important bits are in `components.jsx`.
 ```
 import { NavLink } from "@remix-run/react"
 
@@ -136,7 +141,7 @@ export function Header () {
 }
 ```
 
-Tailwind targets by default small mobile screens.
+[Tailwind targets by default small mobile screens](https://tailwindcss.com/docs/responsive-design).
 For wider screens, you need to use the breakpoint classes.
 `sm` for everything above small, `md` for everything above medium and so on.
 So you can use the `sm` modifier to overwrite the behavior on a small mobile device.
@@ -144,18 +149,26 @@ So you can use the `sm` modifier to overwrite the behavior on a small mobile dev
 So, what is going on on wide screens?
 All the `label`s are hidden on the wide screens due to the `sm:hidden` classes.
 The `input` is anway hidden due to the `hidden` class.
-The list with the navigation links is shown by default 
-(`sm:flex` countering the `hidden`).
+The list with the [navigation links](https://remix.run/docs/en/v1/api/remix#navlink) 
+is shown by default (`sm:flex` countering the `hidden`).
 So more or less, we just see the semi-transparent bar with two links on it.
 
-On small screens, we see now the burger menu icon `IconMenu`. 
-It is connected to the `id=menu` of the input through the `htmlFor=menu` attribute.
-So clicking it, will click the input.
+![](menu-wide.png)
 
-The input has the `peer` pseud-class on it. 
+When we look at the website on small screens (CMD+CTRL+R on MacOS),
+we can now see the burger menu icon `IconMenu`.
+It is connected to the `id=menu` of the input through the `htmlFor=menu` attribute.
+So clicking it, will check/uncheck the `input`.
+
+![](menu-small-closed.png)
+
+
+The `input` has the `peer` pseud-class on it. 
 This way, elements below it can redener differently depending on the state of the `peer`.
-So while the `div` with the nav links is hidden by default,
+So while the `div` with the navigation links is hidden by default,
 it gets displayed, when the input is *checked* due to `peer-checked:flex`.
+
+![](menu-small-open.png)
 
 As the input is checked, the burger menu becomes hidden (`peer-checked:hidden`),
 while the close icon appears within the `div` for the nav links.
@@ -170,4 +183,4 @@ If you prefer a kind of a layover effect of the menu, you can play around with
 It took me a while to have a nice solution for a mobile menu without relying
 on javascript or some hand-made CSS.
 You can achieve the basic behavior of a collaping mobile menu
-with simple tailwind classes and modifiers.
+with a hidden input and simple tailwind classes as well as modifiers.
