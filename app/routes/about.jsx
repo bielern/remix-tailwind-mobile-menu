@@ -1,4 +1,8 @@
-import { Header } from "./components";
+import { Header, canonicalLink } from "./components";
+
+export const handle = {
+  canonicalLink
+}
 
 export default function Index() {
     return (
