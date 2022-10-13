@@ -1,16 +1,19 @@
-# Remix (React) with canonical URLs
+# Adding Canonical URLs to a Remix (React) website
 
-Remix, a react framework, comes packaged only with the essential basics.
-To add canonical URLs to your pages, which are important for search engine optimization (SEO),
-only a few lines need to be added as shown below thanks to matchers.
+[Remix](https://remix.run) is a [React](https://reactjs.org) framework to create websites
+and single page applications (SPA).
+By default, it creates however only the essentials,
+and lacks Canonical URLs, which are important for search engine optimization (SEO).
+Luckily, they can be added with only a few lines as shown below.
 
 ## Why are canonical URLs important?
 
-An important aspect for basic search engine optimization (SEO) is the 
-[canonical URL](https://ahrefs.com/seo/glossary/canonical-url) of each page.
-Search engines typical only index the canonical URLs of a website.
-If the search engines realize that you are publishing the same content at different
-pages with differen canonical URLs, they might penalize you for this and lower your ranking.
+An important aspect for basic (SEO) is to have a
+[canonical URL](https://ahrefs.com/seo/glossary/canonical-url) on each page.
+[Search engines typical only index the canonical URLs of a
+website](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls).
+If a search engine realizes that you are publishing the same content at different
+pages with differen canonical URLs, it might penalize you for this and lower your ranking.
 So, if you want your site to be found through a search engine, make sure that your canonical URLs are correct.
 
 To add a canonical URL, use a canonical tag with the correct link and add it to the header of your site
@@ -28,7 +31,7 @@ If the pages of your website would be accessible through only one URL,
 most search engine would be clever enough and 
 would not require a dedicated canonical URL.
 
-However, it can happen promptly that you end up with several URLs for the same page:
+However, it can happen quickly that you end up with several URLs for the same page:
  - Your website is reachable under the plain hostname as well as under the `www` subdomain like
    `example.com` and `www.example.com`
  - Your website is reachable through `http` as well as `https`: `http://example.com` and `https://example.com`
@@ -41,7 +44,7 @@ However, it can happen promptly that you end up with several URLs for the same p
 
 Remix uses a lot of conventions to do the plumbing of your site.
 One easy but repetitive way of creating the canconical URLs, is to simply add 
-the it straight to your final route files.
+it straight to your final route files.
 
 Assuming, we want to add a canonical URL to `example.com/my-page`, add the following
 to `app/routes/my-page.jsx`:
@@ -89,6 +92,7 @@ the canonical URL to the HTML body.
 ```
 function CanonicalLinks() {
   const matches = useMatches()
+  // The match m contains the pathname to construct the canonical URL
   return matches
     .filter(m => m?.handle?.canonicalLink)
     .flatMap(m => 
@@ -121,6 +125,9 @@ PICTURE FOR ABOUT
 
 So, with a handful of changes, we can create canconical URLs needed for SEO
 in any Remix appliation that we have.
-To create a sitemap or robots.txt, 
+You can use the same mechanism to also generate
+[Open Graph tags](https://ahrefs.com/blog/open-graph-meta-tags/)
+important for sharing content.
+To create a sitemap or robots.txt,
 there are [packages available](https://github.com/balavishnuvj/remix-seo).
 

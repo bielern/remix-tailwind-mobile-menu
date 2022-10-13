@@ -44,6 +44,6 @@ export function Header () {
 }
 
 // Replace the host with your "official" host
-const host = "localhost:3000"
+const host = "https://example.com"
 export const canonicalLink = ({pathname}) =>
   [{rel: 'canonical', href: `${host}${pathname}`}]
